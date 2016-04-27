@@ -1,0 +1,36 @@
+version: '2'
+services:
+    tarantula:
+        build: 
+            context: ./tarantula
+        ports:
+            - "8081:80"
+        volumes:
+            - data:/data
+        environment:
+            EMAIL: tarantula@example.com
+            URL: "http://localhost:8081"
+            SMTP_HOST: localhost
+            SMTP_PORT: 25
+            SMTP_DOMAIN: localhost
+        dns:
+            - 8.8.8.8
+            - 8.8.4.4
+        depends_on:
+            - mysql
+    mysql:
+        image: mysql:5.6
+        volumes:
+            - mysql-data:/var/lib/mysql
+            - ./tarantula/mysql-init:/docker-entrypoint-initdb.d              
+            - ./tarantula/mysql-conf:/etc/mysql/conf.d
+        environment:
+            MYSQL_ROOT_PASSWORD: tarantula
+            MYSQL_DATABASE: tarantula
+            MYSQL_USER: tarantula
+            MYSQL_PASSWORD: tarantula
+volumes:
+    data:
+        driver: local
+    mysql-data:
+        driver: local
