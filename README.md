@@ -1,9 +1,9 @@
 Dockerized Tarantula
 ======================
 
-Dockerfile to build [https://github.com/prove/tarantula](Tarantula Test Management Tool) container image and `docker-compose.yml` to run it with database.
+Dockerfile to build [Tarantula Test Management Tool](https://github.com/prove/tarantula) container image and `docker-compose.yml` to run it with database.
 
-Based on image [https://github.com/ome/ome-docker/tree/master/tarantula](ome-docker/tarantula) by [ihttps://github.com/ome](Open Microscopy Environment). Mysql deployed in separate container.
+Based on image [ome-docker/tarantula](https://github.com/ome/ome-docker/tree/master/tarantula) by [Open Microscopy Environment](https://github.com/ome). Mysql deployed in separate container.
 
 Example
 -------
